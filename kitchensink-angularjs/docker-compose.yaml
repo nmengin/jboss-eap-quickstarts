@@ -17,19 +17,18 @@ services:
     image: nmengin/jboss:capDuLib
     command: /opt/jboss/jboss-eap-7.0/bin/start-jboss.sh --wait-db
     hostname: jboss
-    ports:
-      - "9999:9999"
-      - "9090:9090"
-      - "8080:8080"
+    expose:
+      - "8080"
+      - "9999"      
     labels:
-      - "traefik.port=8080"
+      - "traefik.web.port=8080"
+      - "traefik.web.frontend.rule=PathPrefix:/kitchensink-angularjs/rest"
+      - "traefik.admin.port=9999"
+      - "traefik.admin.frontend.rule=StripPathPrefix:/management"
       - "traefik.backend=jboss"
-      - "traefik.frontend.rule=PathPrefix:/kitchensink-angularjs/rest"
       - "traefik.enable=true"      
     volumes:
-#       - ~/Prez/CapDuLibre/jboss-eap-7.0/standalone/deployments:/opt/jboss/jboss-eap-7.0/standalone/deployments/:rw
-      - ./Docker/dist/:/opt/jboss/jboss-eap-7.0/standalone/deployments/:rw
-      - ./Docker/dist/kitchensink-angularjs.war:/opt/jboss/jboss-eap-7.0/standalone/deployments/kitchensink-angularjs.war:ro
+      - ~/Prez/CapDuLibre/deploy/with-db:/opt/jboss/jboss-eap-7.0/standalone/deployments/:rw
     depends_on:
       - mariadb
 
