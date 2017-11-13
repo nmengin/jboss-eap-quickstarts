@@ -18,11 +18,11 @@
 <!-- This is an unmanaged datasource. It should be used for proofs of concept 
     or testing only. It uses H2, an in memory database that ships with JBoss 
     AS. -->
-<datasources xmlns="http://www.jboss.org/ironjacamar/schema"
+<!-- <datasources xmlns="http://www.jboss.org/ironjacamar/schema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_1.xsd">
-    <!-- The datasource is bound into JNDI at this location. We reference 
-        this in META-INF/persistence.xml -->
+    The datasource is bound into JNDI at this location. We reference 
+        this in META-INF/persistence.xml
     <datasource jndi-name="java:jboss/datasources/KitchensinkAngularJSQuickstartDS"
         pool-name="kitchensink-quickstart" enabled="true"
         use-java-context="true">
@@ -33,5 +33,49 @@
             <password>sa</password>
         </security>
     </datasource>
+</datasources> -->
+
+<datasources>
+  <datasource jndi-name="java:jboss/datasources/KitchensinkAngularJSQuickstartDS" pool-name="kitchensink-quickstart" enabled="true" statistics-enabled="true">
+    <connection-url>jdbc:mariadb://mariadb:3306/kitchensink</connection-url>
+    <driver>mariadb</driver>
+    <security>
+      <user-name>admin</user-name>
+      <password>secretadmin</password>
+    </security>
+    <validation>
+      <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker"/>
+      <validate-on-match>true</validate-on-match>
+      <background-validation>false</background-validation>
+      <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter"/>
+    </validation>
+  </datasource>
 </datasources>
- 
+
+<!-- <datasources>
+  <xa-datasource jndi-name="java:jboss/datasources/KitchensinkAngularJSQuickstartDS" pool-name="kitchensink-quickstart">
+    <xa-datasource-property name="ServerName">
+      localhost
+    </xa-datasource-property>
+    <xa-datasource-property name="DatabaseName">
+      kitchensink
+    </xa-datasource-property>
+    <driver>mariadb</driver>
+    <security>
+      <user-name>admin</user-name>
+      <password>secretadmin</password>
+    </security>
+    <validation>
+      <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker"/>
+      <validate-on-match>true</validate-on-match>
+      <background-validation>false</background-validation>
+      <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter"/>
+    </validation>
+  </xa-datasource>
+  <drivers>
+    <driver name="mariadb" module="org.mariadb">
+      <driver-class>org.mariadb.jdbc.Driver</driver-class>
+      <xa-datasource-class>org.mariadb.jdbc.MariaDbDataSource</xa-datasource-class>
+    </driver>
+  </drivers>
+</datasources> -->
