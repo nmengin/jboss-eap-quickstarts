@@ -1,0 +1,14 @@
+.classpath
+docker-compose.yaml
+Dockerfile
+.dockerignore
+functional-tests
+pom.xml
+.project
+README.html
+README.md
+.settings
+src
+target
+.tern-project
+Docker/dist

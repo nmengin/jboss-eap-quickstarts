@@ -24,6 +24,7 @@
         <version>7.1.0.Beta1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
+    
     <artifactId>kitchensink-angularjs</artifactId>
     <packaging>war</packaging>
     <name>${qs.name.prefix} kitchensink-angularjs</name>

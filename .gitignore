@@ -34,3 +34,4 @@ bin
 *.swp
 !/wicket-war/src/main/resources/META-INF/MANIFEST.MF
 build.metadata
+kitchensink-angularjs/Docker/dist
