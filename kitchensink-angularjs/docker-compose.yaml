@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  jboss:
+    image: zheiro/jdk8-jboss-eap7
+    hostname: jboss
+    ports:
+      - "9999:9999"
+      - "9090:9090"
+      - "8080:8080"   
+    volumes:
+      - ~/Prez/CapDuLibre/deploy/no-db:/opt/jboss/jboss-eap-7.0/standalone/deployments/:rw
