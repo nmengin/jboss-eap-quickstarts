@@ -27,6 +27,7 @@ services:
       - "traefik.frontend.rule=PathPrefix:/kitchensink-angularjs/rest"
       - "traefik.enable=true"      
     volumes:
+#       - ~/Prez/CapDuLibre/jboss-eap-7.0/standalone/deployments:/opt/jboss/jboss-eap-7.0/standalone/deployments/:rw
       - ./Docker/dist/:/opt/jboss/jboss-eap-7.0/standalone/deployments/:rw
       - ./Docker/dist/kitchensink-angularjs.war:/opt/jboss/jboss-eap-7.0/standalone/deployments/kitchensink-angularjs.war:ro
     depends_on:
@@ -60,5 +61,5 @@ services:
     labels:
       - "traefik.port=8080"
       - "traefik.backend=traefikception"
-      - "traefik.frontend.rule=Host:localhost.com"
+      - "traefik.frontend.rule=Host:cap.localhost.com"
       - "traefik.enable=true"

@@ -11,6 +11,6 @@ address = ":8080"
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
-domain = "localhost.com"
+domain = "cap.localhost.com"
 watch = true
 exposedbydefault = false
