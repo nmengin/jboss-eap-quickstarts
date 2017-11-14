@@ -7,5 +7,5 @@ if [[ $# -eq 1 && $1 == "--wait-db" ]]; then
   done
   /opt/jboss/jboss-eap-7.0/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0
 else
-  /opt/jboss/jboss-eap-7.0/bin/standalone.sh &
+  /opt/jboss/jboss-eap-7.0/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 &
 fi
