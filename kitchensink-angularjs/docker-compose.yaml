@@ -24,7 +24,7 @@ services:
       - "traefik.web.port=8080"
       - "traefik.web.frontend.rule=PathPrefix:/kitchensink-angularjs/rest"
       - "traefik.admin.port=9999"
-      - "traefik.admin.frontend.rule=StripPathPrefix:/management"
+      - "traefik.admin.frontend.rule=PathPrefixStrip:/management"
       - "traefik.backend=jboss"
       - "traefik.enable=true"      
     volumes:
